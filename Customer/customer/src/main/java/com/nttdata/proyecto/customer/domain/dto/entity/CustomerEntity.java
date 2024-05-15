@@ -1,26 +1,46 @@
 package com.nttdata.proyecto.customer.domain.dto.entity;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+// Customer entity with its attributes
+
 
 @Entity
 @Table(name="tbl_customers")
-//Da el setter, getter hashCode, to String y Equals
+//Data = setter, getter hashCode, to String and Equals
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class CustomerEntity {
-    //Para llave primaria y autoincrementable
+    //Main key and auto incremental
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 
     private Long id;
     private String name;
-    private int type;
-    private Long codeDocument;
-    // Por si el nombre es distinto en la base de datos@Column(name="fecha_at")
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+
+    @NotEmpty(message = "No puede estar vacío el documentoy")
+    @Size(min = 8, max = 8, message = "El documento es de 8 cifras")
+    private Long doc;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "typedoc_id")
+    private TypeDocEntity typeDoc;
+
+    private String status;
+    private String location;
+    private String phoneNumber;
+    private String email;
+    //For relation de many to one, One CustomerType have many customers
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customertype_id")
+    private CustomerType customerType;
+
 }

@@ -1,18 +1,22 @@
 package com.nttdata.proyecto.customer.domain.dto.model;
 
+import com.nttdata.proyecto.customer.domain.dto.entity.CustomerType;
+import com.nttdata.proyecto.customer.domain.dto.entity.TypeDocEntity;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.*;
+// Customer model with its attributes
 
-//Da el setter, getter hashCode, to String y Equals
 @Data
 public class Customer {
     private Long id;
     private String name;
-    private int type;
-    private Long codeDocument;
+    private Long doc;
+    private TypeDocEntity typeDoc;
+    private String status;
+    private String location;
+    private String phoneNumber;
+    private String email;
+    private CustomerType customerType;
 }
 
 
