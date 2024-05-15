@@ -1,5 +1,4 @@
 package com.nttdata.proyecto.customer.domain.dto.entity;
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +10,7 @@ import java.util.Date;
 @Table(name="tbl_customers")
 //Da el setter, getter hashCode, to String y Equals
 @Data
-public class CustomerEntity {
+public class CompanyEntity {
     //Para llave primaria y autoincrementable
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -20,7 +19,9 @@ public class CustomerEntity {
     private String name;
     private int type;
     private Long codeDocument;
-    // Por si el nombre es distinto en la base de datos@Column(name="fecha_at")
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private String description;
+    private String location;
+    //Para relación de muchos a uno, x tiene muchos de esto@ManyToOne(fetch=FetchType.LAZY)
+    //JoinColumn(name="category_id")
+    //private CustomerEntity customer;
 }

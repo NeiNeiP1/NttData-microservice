@@ -24,7 +24,7 @@ public class CustomerRequest {
     @NotBlank(message = "Debe ingresar un tipo de documento")
     private String typeDoc;
     @NotBlank(message = "Debe ingresar el número del documento")
-    @Pattern(regexp = "^\\d(0)$", message = "Debe ingresar un dato correcto")
+    @Pattern(regexp = "^\\d{8}$", message = "Debe ingresar un dato correcto")
     private String doc;
     @NotBlank(message = "Debe ingresar el tipo de cliente")
     private String typeCustomer;
