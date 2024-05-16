@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//Para paginar y generar automaticamente kis query
+//Para paginar y generar automaticamente los query
 @Repository
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
     // search for a Customer by its type. @return CustomerList
@@ -17,16 +17,16 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
     public List<CustomerEntity> findByCustomerType(CustomerType customerType);
 
     // search for a Customer by name. @return Customer
-    public List<CustomerEntity> findByName(String nombre);
+    public List<CustomerEntity> findByName(String name);
 
     // search for a Customer by document code. @return Customer
-    public CustomerEntity findByCodeDocument(Long codeDocument);
+    public CustomerEntity findByDoc(Long doc);
 
     // search for a Customer by document code. @return CustomerList
     public List<CustomerEntity> findByLocation(String location);
 
     // search for a customer by phonenumber. @return Customer
-    public CustomerEntity findByPhoneNumber(String phoneNumber);
+    public CustomerEntity findByPhonenumber(String phonenumber);
 
     // search for a customer by email. @return Customer
     public CustomerEntity findByEmail(String email);

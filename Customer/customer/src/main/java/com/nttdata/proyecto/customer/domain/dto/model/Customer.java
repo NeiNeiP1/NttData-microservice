@@ -14,7 +14,7 @@ public class Customer {
     private TypeDocEntity typeDoc;
     private String status;
     private String location;
-    private String phoneNumber;
+    private String phonenumber;
     private String email;
     private CustomerType customerType;
 }
