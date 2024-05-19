@@ -59,4 +59,9 @@ public class CustomerServiceImpl implements CustomerService{
         return customerRepository.findByCustomerType(customerType);
     }
 
+    @Override
+    public CustomerEntity findByDoc(String doc){
+        return customerRepository.findByDoc(doc);
+    }
+
 }

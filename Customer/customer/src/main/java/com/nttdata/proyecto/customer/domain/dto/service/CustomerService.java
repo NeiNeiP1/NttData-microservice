@@ -11,4 +11,5 @@ public interface CustomerService {
     public CustomerEntity updateCustomer (CustomerEntity customer);
     public CustomerEntity deleteCustomer (Long id);
     public List<CustomerEntity> findByCustomerType(CustomerType customerType);
+    public CustomerEntity findByDoc(String doc);
 }
