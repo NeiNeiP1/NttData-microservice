@@ -20,7 +20,7 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
     public List<CustomerEntity> findByName(String name);
 
     // search for a Customer by document code. @return Customer
-    public CustomerEntity findByDoc(Long doc);
+    public CustomerEntity findByDoc(String doc);
 
     // search for a Customer by document code. @return CustomerList
     public List<CustomerEntity> findByLocation(String location);
