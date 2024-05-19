@@ -4,12 +4,12 @@ INSERT INTO TBL_CUSTOMERTYPE (id,name) VALUES (1, 'Staff');
 INSERT INTO TBL_CUSTOMERTYPE (id,name) VALUES (2, 'Company');
 select * from TBL_CUSTOMERTYPE;
 
-CREATE TABLE IF NOT EXISTS tbl_documenttype ( id INT NOT NULL,name VARCHAR,description VARCHAR,PRIMARY KEY (id));
-
+CREATE TABLE IF NOT EXISTS tbl_documenttype ( id LONG NOT NULL,name VARCHAR,description VARCHAR,PRIMARY KEY (id));
+DELETE FROM tbl_documenttype WHERE id >= '1';
 INSERT INTO tbl_documenttype (id,name) VALUES (1, 'DNI');
 INSERT INTO tbl_documenttype (id,name) VALUES (2, 'RUC');
 INSERT INTO tbl_documenttype (id,name) VALUES (3, 'Pasaporte');
-DELETE FROM tbl_documenttype WHERE id >= '1';
+
 select * FROM tbl_documenttype;
 
 CREATE TABLE IF NOT EXISTS tbl_customers (
