@@ -1,4 +1,4 @@
-package com.nttdata.proyecto.customer;
+package com.nttdata.proyecto.customer.infraestructure.handler;
 
 import com.nttdata.proyecto.customer.application.dto.response.CustomerResponse;
 import org.springframework.data.crossstore.ChangeSetPersister;
