@@ -1,8 +1,10 @@
-package com.nttdata.proyecto.customer.domain.dto.service;
+package com.nttdata.proyecto.customer.domain.dto.service.Impl;
 
 import com.nttdata.proyecto.customer.domain.dto.entity.CustomerEntity;
 import com.nttdata.proyecto.customer.domain.dto.entity.CustomerType;
+import com.nttdata.proyecto.customer.domain.dto.model.Customer;
 import com.nttdata.proyecto.customer.domain.dto.repository.CustomerRepository;
+import com.nttdata.proyecto.customer.domain.dto.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,14 +14,17 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private final CustomerRepository customerRepository;
-    @Override
-    public List<CustomerEntity> listAllCustomer(){
 
-        return customerRepository.findAll();
+
+
+    @Override
+    public List<Customer> listAllCustomer() {
+        return customerRepository.listCustomer();
     }
+
     @Override
     public CustomerEntity getCustomer(Long id){
 
@@ -61,7 +66,18 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public CustomerEntity findByDoc(String doc){
+
         return customerRepository.findByDoc(doc);
+    }
+
+    @Override
+    public Customer saveCustomerModel(Customer customerModels) {
+        return customerRepository.saveCustomer(customerModels);
+    }
+
+    @Override
+    public Customer updateCustomerModel(Customer customerModels) {
+        return customerRepository.updateCustomer(customerModels);
     }
 
 }
