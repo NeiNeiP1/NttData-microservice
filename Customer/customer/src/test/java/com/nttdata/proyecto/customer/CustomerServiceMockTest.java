@@ -5,7 +5,7 @@ import com.nttdata.proyecto.customer.domain.dto.entity.CustomerType;
 import com.nttdata.proyecto.customer.domain.dto.entity.TypeDocEntity;
 import com.nttdata.proyecto.customer.domain.dto.repository.CustomerRepository;
 import com.nttdata.proyecto.customer.domain.dto.service.CustomerService;
-import com.nttdata.proyecto.customer.domain.dto.service.CustomerServiceImpl;
+import com.nttdata.proyecto.customer.domain.dto.service.Impl.CustomerServiceImpl;
 import com.nttdata.proyecto.customer.domain.dto.CustomerApplication;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,8 +39,7 @@ public class CustomerServiceMockTest {
                 .email("jramosb@unsa.edu.pe")
                 .doc("95487466")
                 .build();
-        Mockito.when(customerRepository.findById(1L))
-                .thenReturn(Optional.of(customer01));
+        Mockito.when(customerRepository.findById(1L));
         Mockito.when(customerRepository.save(customer01)).thenReturn(customer01);
     }
     @Test

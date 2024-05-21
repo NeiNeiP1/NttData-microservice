@@ -4,9 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nttdata.proyecto.customer.application.dto.request.CustomerRequest;
 import com.nttdata.proyecto.customer.application.dto.response.CustomerResponse;
+import com.nttdata.proyecto.customer.application.service.CustomerExternalServiceCustom;
 import com.nttdata.proyecto.customer.domain.dto.entity.CustomerEntity;
 import com.nttdata.proyecto.customer.domain.dto.entity.CustomerType;
 import com.nttdata.proyecto.customer.domain.dto.entity.TypeDocEntity;
+import com.nttdata.proyecto.customer.domain.dto.model.Customer;
 import com.nttdata.proyecto.customer.domain.dto.service.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
+
+    private final CustomerExternalServiceCustom customerExternalServiceCustom;
 
    //formatMessage is a function that is responsible for creating a list of errors
      //that facilitates the validation of the Request Body.
@@ -58,7 +62,10 @@ public class CustomerController {
 
 
     @PostMapping(value= "/register")
-    public ResponseEntity<CustomerEntity> saveCustomer(@Valid @RequestBody CustomerRequest customerRequest){
+    public ResponseEntity<CustomerEntity> saveCustomer(@Valid @RequestBody CustomerRequest customerRequest, BindingResult result){
+        if(result.hasErrors()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, this.formatMessage(result));
+        }
         CustomerEntity customerEntity = CustomerEntity.builder()
                 .name(customerRequest.getName())
                 .doc(customerRequest.getDoc())
@@ -82,23 +89,36 @@ public class CustomerController {
     }
 
     //Returns a complete or filtered list of registered customers by their id.
-    @GetMapping
-    public ResponseEntity<List<CustomerEntity>> listCustomers( @RequestParam(name="customertype_id",required = false) Long customertype_id) {
-        List<CustomerEntity> customers;
-        if(Optional.ofNullable(customertype_id).isEmpty()){
-            customers=customerService.listAllCustomer();
-        }else{
-            customers=customerService.findByCustomerType(
-                    CustomerType.builder().id(customertype_id).build());
-        }
-        System.out.println("List of customers: " + customers);
-        return ResponseEntity.ok(customers);
+    @GetMapping("/customerList")
+    public ResponseEntity<List<Customer>> toListCustomer(){
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                customerExternalServiceCustom.listCustomerModel()
+        );
     }
     @GetMapping(value = "/{doc}")
     public ResponseEntity<CustomerEntity> getCustomer(@PathVariable("doc") String document) {
         CustomerEntity customer =  customerService.findByDoc(document);
         System.out.println("Customer found: " + customer);
         if (Optional.ofNullable(customer).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(customer);
+    }
+
+    @PutMapping(value="/{id}")
+    public ResponseEntity<CustomerEntity> updateCustomer(@PathVariable("id") Long id, @RequestBody CustomerEntity customer) {
+        customer.setId(id);
+        CustomerEntity customerDB =  customerService.updateCustomer(customer);
+        if(customerDB==null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(customerDB);
+    }
+
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<CustomerEntity> deleteCustomer(@PathVariable("id") Long id) {
+        CustomerEntity customer= customerService.deleteCustomer(id);
+        if(customer==null){
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(customer);

@@ -2,16 +2,22 @@ package com.nttdata.proyecto.customer.domain.dto.repository;
 
 import com.nttdata.proyecto.customer.domain.dto.entity.CustomerEntity;
 import com.nttdata.proyecto.customer.domain.dto.entity.CustomerType;
+import com.nttdata.proyecto.customer.domain.dto.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 // Customer Repository with search functions
 
 import java.util.List;
+import java.util.Optional;
 
 //Para paginar y generar automaticamente los query
-@Repository
+
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
+
+
+    List<Customer> listCustomer();
     // search for a Customer by its type. @return CustomerList
 
     public List<CustomerEntity> findByCustomerType(CustomerType customerType);
@@ -30,4 +36,10 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
 
     // search for a customer by email. @return Customer
     public CustomerEntity findByEmail(String email);
+
+
+    public Optional<CustomerEntity> findById(Long id);
+    Customer saveCustomer( Customer customerModel );
+
+    Customer updateCustomer( Customer customerModel );
 }
