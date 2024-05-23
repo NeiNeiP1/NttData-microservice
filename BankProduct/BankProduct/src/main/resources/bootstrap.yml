@@ -17,7 +17,6 @@ spring:
     password: pass
     username: postgres
     url: jdbc:postgresql://localhost:5432/postgres
-    platform: postgres
   sleuth:
     sampler:
       probability: '1.0'
@@ -26,6 +25,9 @@ spring:
       server:
         bootstrap: 'true'
       uri: http://localhost:8890
+  sql:
+    init:
+      platform: postgres
 eureka:
   client:
     service-url:
