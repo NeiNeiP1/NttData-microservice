@@ -7,15 +7,13 @@ import com.nttdata.proyecto.customer.domain.dto.model.Customer;
 import java.util.List;
 public interface CustomerService {
 
-
-    public List<Customer> listAllCustomer();
+    public List<CustomerEntity> getAllCustomers();
+    public List<Customer> listCustomer();
     public CustomerEntity getCustomer (Long id);
     public CustomerEntity createCustomer (CustomerEntity customer);
     public CustomerEntity updateCustomer (CustomerEntity customer);
     public CustomerEntity deleteCustomer (Long id);
     public List<CustomerEntity> findByCustomerType(CustomerType customerType);
     public CustomerEntity findByDoc(String doc);
-    Customer saveCustomerModel(Customer customerModels);
 
-    Customer updateCustomerModel(Customer customerModels);
 }

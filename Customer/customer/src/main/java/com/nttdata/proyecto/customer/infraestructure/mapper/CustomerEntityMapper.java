@@ -31,19 +31,17 @@ public interface CustomerEntityMapper {
 
      //Without Programation functional
      List<Customer> mapperCustomerModel(List<CustomerEntity> customerEntities);
-
      /**
      @Mapping(target="id", source = "id")
      @Mapping(target="name", source = "name")
      @Mapping(target="doc", source = "doc")
-     @Mapping(target="typeDoc", source = "typeDoc.id")
+     @Mapping(target="typeDoc.id", source = "typeDoc")
      @Mapping(target="status", source = "status")
      @Mapping(target="location", source = "location")
      @Mapping(target="phonenumber", source = "phonenumber")
      @Mapping(target="email", source = "email")
-     @Mapping(target="customerType", source = "customerType.id")
+     @Mapping(target="customerType.id", source = "customerType")
      Customer mapperCustomerEntity(Customer customer);
-     List<Customer> mapperCustomerEntity(List<CustomerEntity> customerEntities);
-**/
 
+     **/
 }

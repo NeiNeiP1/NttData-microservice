@@ -31,8 +31,8 @@ public  class CustomerRepositoryImpl implements CustomerRepository  {
 
 
     @Override
-    public List<CustomerEntity> listCustomersEntity() {
-        return  customerRepository.listCustomersEntity();
+    public List<CustomerEntity> getAllCustomers() {
+        return customerRepository.getAllCustomers();
     }
 
     @Override
@@ -43,6 +43,8 @@ public  class CustomerRepositoryImpl implements CustomerRepository  {
         //With programation functional
         //return customerReposiJPA.findAll().stream().map(CustomerEntityMapper.INSTANCE::mapperCustomerModel).collect(Collectors.toList());
     }
+
+
 
     @Override
     public List<CustomerEntity> findByCustomerType (CustomerType customerType){
@@ -78,6 +80,8 @@ public  class CustomerRepositoryImpl implements CustomerRepository  {
     public Optional<CustomerEntity> findById(Long id) {
         return customerRepository.findById(id);
     }
+
+
 
     @Override
     public boolean existsById(Long aLong) {

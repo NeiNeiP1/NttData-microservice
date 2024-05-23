@@ -18,10 +18,14 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private final CustomerRepository customerRepository;
 
-
+    @Override
+    public List<CustomerEntity> getAllCustomers(){
+        return customerRepository.findAll();
+    }
 
     @Override
-    public List<Customer> listAllCustomer() {
+    public List<Customer> listCustomer() {
+
         return customerRepository.listCustomer();
     }
 
@@ -70,14 +74,6 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findByDoc(doc);
     }
 
-    @Override
-    public Customer saveCustomerModel(Customer customerModels) {
-        return customerRepository.saveCustomer(customerModels);
-    }
 
-    @Override
-    public Customer updateCustomerModel(Customer customerModels) {
-        return customerRepository.updateCustomer(customerModels);
-    }
 
 }

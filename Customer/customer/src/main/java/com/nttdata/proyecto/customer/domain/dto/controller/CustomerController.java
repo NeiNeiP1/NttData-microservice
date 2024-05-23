@@ -27,8 +27,6 @@ import java.util.stream.Collectors;
 @RequestMapping("/customers")
 public class CustomerController {
 
-    private final CustomerExternalServiceCustom customerExternalServiceCustom;
-
    //formatMessage is a function that is responsible for creating a list of errors
      //that facilitates the validation of the Request Body.
 
@@ -90,10 +88,18 @@ public class CustomerController {
 
     //Returns a complete or filtered list of registered customers by their id.
     @GetMapping("/customerList")
-    public ResponseEntity<List<Customer>> toListCustomer(){
-        return ResponseEntity.status(HttpStatus.CREATED).body(
-                customerExternalServiceCustom.listCustomerModel()
-        );
+    public ResponseEntity<List<CustomerEntity>> getList(
+            @RequestParam(name = "customerId", required = false) Long customerTypeId) {
+        List<CustomerEntity> customers;
+        if (Optional.ofNullable(customerTypeId).isEmpty()) {
+            customers = customerService.getAllCustomers();
+        } else {
+            customers = customerService.findByCustomerType(
+                    CustomerType.builder()
+                            .id(customerTypeId)
+                            .build());
+        }
+        return ResponseEntity.ok(customers);
     }
     @GetMapping(value = "/{doc}")
     public ResponseEntity<CustomerEntity> getCustomer(@PathVariable("doc") String document) {
