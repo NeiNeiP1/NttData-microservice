@@ -17,6 +17,8 @@ import java.util.Optional;
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 
 
+    List<CustomerEntity> getAllCustomers();
+
     List<Customer> listCustomer();
     // search for a Customer by its type. @return CustomerList
 
@@ -39,7 +41,4 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
 
 
     public Optional<CustomerEntity> findById(Long id);
-    Customer saveCustomer( Customer customerModel );
-
-    Customer updateCustomer( Customer customerModel );
 }

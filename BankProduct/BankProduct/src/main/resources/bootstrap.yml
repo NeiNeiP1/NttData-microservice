@@ -10,11 +10,8 @@ spring:
       ddl-auto: update
     database: POSTGRESQL
     show-sql: 'true'
-    properties:
-      hibernate:
-        show_sql: 'true'
   application:
-    name: cliente
+    name: BankProduct
   datasource:
     driverClassName: org.postgresql.Driver
     password: pass
@@ -37,4 +34,4 @@ server:
   error:
     include-binding-errors: always
     include-message: always
-  port: '8085'
+  port: '8086'
