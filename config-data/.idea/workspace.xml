@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="54a27901-7ce3-4f75-9343-64e70458defb" name="Changes" comment="Config data con eureka server">
+      <change afterPath="$PROJECT_DIR$/../BankProduct/BankProduct/src/main/java/com/nttdata/proyecto/BankProduct/domain/dto/Controller/CustomerProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BankProduct/BankProduct/src/main/java/com/nttdata/proyecto/BankProduct/domain/dto/Model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BankProduct/BankProduct/src/main/java/com/nttdata/proyecto/BankProduct/domain/dto/Model/CustomerTypeModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BankProduct/BankProduct/src/main/java/com/nttdata/proyecto/BankProduct/domain/dto/Model/TypeDoc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Customer/customer/src/main/java/com/nttdata/proyecto/customer/domain/dto/model/AccountBank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Customer/customer/src/main/java/com/nttdata/proyecto/customer/domain/dto/model/BankProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Customer/customer/src/main/java/com/nttdata/proyecto/customer/domain/dto/model/Credit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Customer/customer/src/main/java/com/nttdata/proyecto/customer/domain/dto/model/CreditCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../registry-service/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../registry-service/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../registry-service/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../registry-service/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../registry-service/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../registry-service/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../registry-service/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "NeiNeiP1"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NeiNeiP1/NttData-microservice.git",
+    "accountId": "97036a40-b0e3-49f7-bc00-754db827d335"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2gt66qM2ZUExVDztyrFj5AGvwGM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/Johnnathan",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54a27901-7ce3-4f75-9343-64e70458defb" name="Changes" comment="" />
+      <created>1716504354185</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716504354185</updated>
+      <workItem from="1716504355368" duration="5741000" />
+    </task>
+    <task id="LOCAL-00001" summary="Config data con eureka server">
+      <option name="closed" value="true" />
+      <created>1716508411094</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716508411094</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Config data con eureka server">
+      <option name="closed" value="true" />
+      <created>1716514980025</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716514980025</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Config data con eureka server">
+      <option name="closed" value="true" />
+      <created>1716515037488</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716515037488</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Config data con eureka server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Config data con eureka server" />
+  </component>
+</project>

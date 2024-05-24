@@ -75,28 +75,22 @@ public class BankProductController {
     }
     @GetMapping(value = "/{typePB}")
     public ResponseEntity<BankProductEntity> getByTypePB(@PathVariable("typePB") String typePB) {
-        BankProductEntity bankProductEntity = bankProductService.findByTypePB(typePB);
-        if(Optional.ofNullable(bankProductEntity).isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(bankProductEntity);
+        return Optional.ofNullable(bankProductService.findByTypePB(typePB))
+                .map(bankProductEntity -> ResponseEntity.status(HttpStatus.OK).body(bankProductEntity))
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
     @PutMapping(value = "/{id}")
     public ResponseEntity<BankProductEntity> update(@PathVariable("id") Long id, @RequestBody BankProductEntity bankProduct) {
         bankProduct.setId(id);
-        BankProductEntity bankProductEntity = bankProductService.update(bankProduct);
-        if(bankProductEntity == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(bankProductEntity);
+        return Optional.ofNullable(bankProductService.update(bankProduct))
+                .map(updatedEntity -> ResponseEntity.status(HttpStatus.OK).body(updatedEntity))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<BankProductEntity> delete(@PathVariable("id") Long id) {
-        BankProductEntity bankProductEntity = bankProductService.delete(id);
-        if(bankProductEntity == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(bankProductEntity);
+        return Optional.ofNullable(bankProductService.delete(id))
+                .map(deletedEntity -> ResponseEntity.status(HttpStatus.OK).body(deletedEntity))
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }
