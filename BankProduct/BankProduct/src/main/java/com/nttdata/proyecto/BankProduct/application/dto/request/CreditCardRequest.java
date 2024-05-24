@@ -8,6 +8,8 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+
+// Credit Card Request with validation
 public class CreditCardRequest {
 
     @NotBlank(message = "You must enter a number card")

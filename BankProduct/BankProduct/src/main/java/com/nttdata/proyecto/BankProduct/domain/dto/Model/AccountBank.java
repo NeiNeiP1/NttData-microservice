@@ -6,6 +6,8 @@ import lombok.Data;
 
 import java.util.Date;
 
+//Model of account bank with attributes
+
 @Data
 public class AccountBank {
     private Long id;

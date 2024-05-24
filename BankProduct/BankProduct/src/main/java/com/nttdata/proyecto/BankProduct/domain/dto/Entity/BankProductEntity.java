@@ -15,6 +15,8 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
+// Entity  product bank with attributes with validation
 public class BankProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

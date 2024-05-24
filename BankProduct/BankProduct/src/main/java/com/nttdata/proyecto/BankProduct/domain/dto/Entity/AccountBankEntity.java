@@ -1,5 +1,7 @@
 package com.nttdata.proyecto.BankProduct.domain.dto.Entity;
 
+
+// Entity  account bank with attributes with validation
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;

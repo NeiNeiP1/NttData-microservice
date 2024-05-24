@@ -50,9 +50,10 @@ public class AccountBankController {
         return jsonString;
 
     }
+    // Service for managing operations related to bank accounts.
     @Autowired
     private AccountBankService accountBankService;
-
+    // Endpoint to register a new bank account
     @PostMapping(value="/register")
     public ResponseEntity<AccountBankEntity> register(@Valid @RequestBody AccountBankRequest accountBankRequest, BindingResult result) {
         if(result.hasErrors()) {
@@ -68,11 +69,13 @@ public class AccountBankController {
         AccountBankEntity accountcreate = accountBankService.create(accountBankEntity);
         return ResponseEntity.status(HttpStatus.CREATED).body(accountcreate);
     }
+    // Endpoint to obtain all bank accounts
     @GetMapping
     public ResponseEntity<List<AccountBankEntity>> getAll(){
         List<AccountBankEntity> list=accountBankService.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
+    // Endpoint to obtain a bank account by its account number
     @GetMapping(value="/{accountNumber}")
     public ResponseEntity<AccountBankEntity> getByAccountNumber(@PathVariable("accountNumber") String accountNumber){
         AccountBankEntity accountBankEntity = accountBankService.findByAccountNumber(accountNumber);
@@ -81,6 +84,7 @@ public class AccountBankController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(accountBankEntity);
     }
+    // Endpoint to update a bank account
     @PutMapping(value = "/{id}")
     public ResponseEntity<AccountBankEntity> update(@PathVariable("id") Long id, @RequestBody AccountBankEntity accountBankEntity){
         accountBankEntity.setId(id);
@@ -90,6 +94,7 @@ public class AccountBankController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(accountBankEntity1);
     }
+    // Endpoint to delete a bank account
     @DeleteMapping(value="/{id}")
     public ResponseEntity<AccountBankEntity> delete(@PathVariable("id") Long id){
         AccountBankEntity accountBankEntity=accountBankService.delete(id);

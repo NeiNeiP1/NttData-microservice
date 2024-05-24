@@ -14,6 +14,8 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
+// Entity  credit card with attributes with validation
 public class CreditCardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+// Entity credit with attributes with validation
 public class CreditEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

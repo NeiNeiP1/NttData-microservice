@@ -9,6 +9,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+// Bank Product Request with validation
+
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

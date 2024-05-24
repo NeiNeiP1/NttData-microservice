@@ -10,7 +10,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Date;
-
+// Account Bank Request with validation
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

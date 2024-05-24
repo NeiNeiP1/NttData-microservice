@@ -47,9 +47,10 @@ public class CreditController {
         return jsonString;
 
     }
+    // Service for managing operations related to credit card
     @Autowired
     private CreditService creditService;
-
+    // Endpoint to register a credit card
     @PostMapping(value = "/register")
     public ResponseEntity<CreditEntity> register(@Valid @RequestBody CreditEntity credit, BindingResult result) {
         if (result.hasErrors()) {
@@ -63,7 +64,7 @@ public class CreditController {
         CreditEntity creditEntity=creditService.save(creditentity);
         return ResponseEntity.status(HttpStatus.CREATED).body(creditEntity);
     }
-
+    // Endpoint to obtain all credit cards
     @GetMapping
     public ResponseEntity<List<CreditEntity>> findAll() {
         List<CreditEntity> list = creditService.findAll();

@@ -50,10 +50,10 @@ public class BankProductController {
         return jsonString;
 
     }
-
+    // Service for managing operations related to bank products
     @Autowired
     private BankProductService bankProductService;
-
+    // Endpoint to register a new bank product
     @PostMapping(value="/register")
     public ResponseEntity<BankProductEntity> register(@Valid @RequestBody BankProductRequest bankProduct, BindingResult result) {
         if(result.hasErrors()) {
@@ -67,18 +67,20 @@ public class BankProductController {
         BankProductEntity bankcreate = bankProductService.create(bankProductEntity);
         return ResponseEntity.status(HttpStatus.CREATED).body(bankcreate);
     }
-
+    // Endpoint to obtain all bank product
     @GetMapping
     public ResponseEntity<List<BankProductEntity>> getAll() {
         List<BankProductEntity> list = bankProductService.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
+    // Endpoint to obtain a bank product by its type produc bank
     @GetMapping(value = "/{typePB}")
     public ResponseEntity<BankProductEntity> getByTypePB(@PathVariable("typePB") String typePB) {
         return Optional.ofNullable(bankProductService.findByTypePB(typePB))
                 .map(bankProductEntity -> ResponseEntity.status(HttpStatus.OK).body(bankProductEntity))
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
+    // Endpoint to update a bank product
     @PutMapping(value = "/{id}")
     public ResponseEntity<BankProductEntity> update(@PathVariable("id") Long id, @RequestBody BankProductEntity bankProduct) {
         bankProduct.setId(id);
@@ -86,6 +88,7 @@ public class BankProductController {
                 .map(updatedEntity -> ResponseEntity.status(HttpStatus.OK).body(updatedEntity))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
+    // Endpoint to delete a bank product
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<BankProductEntity> delete(@PathVariable("id") Long id) {
         return Optional.ofNullable(bankProductService.delete(id))
