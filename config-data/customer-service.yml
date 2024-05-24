@@ -10,13 +10,17 @@ spring:
       ddl-auto: update
     database: POSTGRESQL
     show-sql: 'true'
+    properties:
+      hibernate:
+        show_sql: 'true'
   application:
-    name: BankProduct
+    name: cliente
   datasource:
     driverClassName: org.postgresql.Driver
     password: pass
     username: postgres
     url: jdbc:postgresql://localhost:5432/postgres
+    platform: postgres
   sleuth:
     sampler:
       probability: '1.0'
@@ -25,9 +29,6 @@ spring:
       server:
         bootstrap: 'true'
       uri: http://localhost:8890
-  sql:
-    init:
-      platform: postgres
 eureka:
   client:
     service-url:
@@ -36,4 +37,4 @@ server:
   error:
     include-binding-errors: always
     include-message: always
-  port: '8086'
+  port: '8085'
